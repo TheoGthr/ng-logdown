@@ -29,6 +29,21 @@ body {
   color: rgb(88, 88, 88);
 }
 
+.content,
+.container {
+  max-width: 100%;
+  display: flex;
+
+  @media screen and (max-width: 1650px) and (min-width: 750px) {
+    margin-left: 30%;
+    margin-right: 2%;
+  }
+
+  @media screen and (max-width: 1650px) {
+    flex-direction: column;
+  }
+}
+
 .sub-menu-icons {
   display: flex;
   justify-content: space-between;

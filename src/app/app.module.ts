@@ -9,6 +9,7 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './core/material.module';
 import { CoreModule } from './core/core.module';
+import { MarkdownModule } from 'ngx-markdown';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/');
@@ -28,6 +29,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       isolate: false,
     }),
+    MarkdownModule.forRoot({ loader: HttpClient }),
     CoreModule,
     BrowserAnimationsModule,
   ],
