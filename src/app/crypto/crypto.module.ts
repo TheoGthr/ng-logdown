@@ -4,7 +4,6 @@ import { CryptoComponent } from './crypto.component';
 import { CryptoRoutingModule } from './crypto-routing.module';
 import { CoreModule } from '../core/core.module';
 import { MarkdownModule } from 'ngx-markdown';
-import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
   declarations: [CryptoComponent],

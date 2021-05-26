@@ -33,12 +33,4 @@ export function HttpLoaderFactory(http: HttpClient) {
     NavLangComponent,
   ],
 })
-// TranslateModule.forChild({
-//   loader: {
-//     provide: TranslateLoader,
-//     useFactory: HttpLoaderFactory,
-//     deps: [HttpClient],
-//   },
-//   isolate: false,
-// })
 export class CoreModule {}
