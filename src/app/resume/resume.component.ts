@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
   selector: 'resume',
   template: `
     <div class="theme-base-09">
-      <resume-sidebar></resume-sidebar>
+      <tgr-sidebar></tgr-sidebar>
       <div class="content container">
         <resume-experiences
           class="resume-card resume-left"

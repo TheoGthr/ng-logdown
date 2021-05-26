@@ -10,13 +10,14 @@ import { MaterialModule } from './material.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { NavLangComponent } from './nav-lang/nav-lang.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { SidebarComponent } from './sidebar/sidebar.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
 
 @NgModule({
-  declarations: [NotFoundComponent, NavLangComponent],
+  declarations: [NotFoundComponent, NavLangComponent, SidebarComponent],
   imports: [
     CommonModule,
     TranslateModule,
@@ -31,6 +32,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FontAwesomeModule,
     NotFoundComponent,
     NavLangComponent,
+    SidebarComponent,
   ],
 })
 export class CoreModule {}
