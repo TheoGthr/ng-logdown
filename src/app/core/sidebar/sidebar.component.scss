@@ -4,6 +4,24 @@ img {
   border: 0.3em solid #e4ac7e;
 }
 
+.sidebar-sticky {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: 0 auto;
+  min-height: 100%;
+  left: 1rem;
+
+  .sidebar-nav {
+    align-self: flex-start;
+    width: 100%;
+  }
+}
+
+.lead {
+  color: rgb(88, 88, 88);
+}
+
 #resume-info {
   position: relative;
   display: flex;

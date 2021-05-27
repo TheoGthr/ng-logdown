@@ -5,8 +5,8 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 @Component({
   selector: 'nav-lang',
   template: `
-    <div class="sub-menu-icons">
-      <div class="external-links">
+    <div id="sub-menu-icons">
+      <div id="external-links">
         <a class="sidebar-nav-icons" href="https://github.com/TheoGthr">
           <fa-icon [icon]="faGithub"></fa-icon>
         </a>
@@ -23,9 +23,7 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
           <mat-icon>language</mat-icon>
         </button>
         <mat-menu #menu="matMenu">
-          <button mat-menu-item (click)="setLang('fr')">
-            Français
-          </button>
+          <button mat-menu-item (click)="setLang('fr')">Français</button>
           <button mat-menu-item (click)="setLang('en')">English</button>
         </mat-menu>
       </div>
@@ -33,7 +31,12 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
   `,
   styles: [
     `
-      .external-links {
+      #sub-menu-icons {
+        display: flex;
+        justify-content: space-between;
+      }
+
+      #external-links {
         display: flex;
         width: 20%;
         justify-content: space-between;

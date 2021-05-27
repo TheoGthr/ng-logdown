@@ -11,24 +11,6 @@ body {
   margin: 0;
 }
 
-.sidebar-sticky {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  margin: 0 auto;
-  min-height: 100%;
-  left: 1rem;
-
-  .sidebar-nav {
-    align-self: flex-start;
-    width: 100%;
-  }
-}
-
-.lead {
-  color: rgb(88, 88, 88);
-}
-
 .content,
 .container {
   max-width: 100%;
@@ -44,17 +26,12 @@ body {
   }
 }
 
-.sub-menu-icons {
-  display: flex;
-  justify-content: space-between;
-}
-
 .job-header {
   font-weight: 500;
   font-size: 17px;
 }
 
-b {
+.resume-card b {
   font-weight: 450;
   font-style: italic;
 }
