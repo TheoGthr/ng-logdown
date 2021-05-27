@@ -1,4 +1,11 @@
 {
+  "core": {
+    "not-found": {
+      "title": "404 - Page non trouvée",
+      "subtitle": "La page recherchée n'existe a priori pas.",
+      "back": "Retour à l'accueil"
+    }
+  },
   "home": {
     "navbar": {
       "description": "Un peu de cryptographie, de développement web et 3D",

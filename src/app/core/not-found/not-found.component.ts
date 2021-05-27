@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
   selector: 'lgd-home',
@@ -8,13 +6,15 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
     <div class="not-found">
       <mat-card>
         <mat-card-header>
-          <mat-card-title>404 Not found</mat-card-title>
+          <mat-card-title>{{
+            'core.not-found.title' | translate
+          }}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>The page you requested does not exist.</p>
+          <p>{{ 'core.not-found.subtitle' | translate }}</p>
         </mat-card-content>
         <button mat-raised-button routerLink="/" color="primary">
-          Return to home
+          {{ 'core.not-found.back' | translate }}
         </button>
       </mat-card>
     </div>
@@ -35,6 +35,4 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
     `,
   ],
 })
-export class NotFoundComponent {
-  constructor(private translateService: TranslateService) {}
-}
+export class NotFoundComponent {}

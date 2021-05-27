@@ -1,4 +1,11 @@
 {
+  "core": {
+    "not-found": {
+      "title": "404 - Not found",
+      "subtitle": "The page you requested does not exist.",
+      "back": "Return to home"
+    }
+  },
   "home": {
     "navbar": {
       "description": "Some thoughts about cryptography, web development and 3D graphics",
