@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/theogthr",
+    "public": "dist/logdown",
     "ignore": [
       "firebase.json",
       "**/.*",

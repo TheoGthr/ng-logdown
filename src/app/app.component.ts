@@ -7,7 +7,7 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  public title = 'theogthr';
+  public title = 'logdown';
 
   constructor(private translateService: TranslateService) {
     const browserLang = this.translateService.getBrowserLang();
