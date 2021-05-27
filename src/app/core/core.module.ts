@@ -11,10 +11,13 @@ import { MarkdownModule } from 'ngx-markdown';
 import { NavLangComponent } from './nav-lang/nav-lang.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
+import { RouterModule, Routes } from '@angular/router';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
 }
+
+const routes: Routes = [];
 
 @NgModule({
   declarations: [NotFoundComponent, NavLangComponent, SidebarComponent],
@@ -24,6 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MaterialModule,
     MarkdownModule.forRoot(),
     FontAwesomeModule,
+    RouterModule.forChild(routes),
   ],
   exports: [
     TranslateModule,
@@ -33,6 +37,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     NotFoundComponent,
     NavLangComponent,
     SidebarComponent,
+    RouterModule,
   ],
 })
 export class CoreModule {}

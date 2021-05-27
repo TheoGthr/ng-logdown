@@ -1,32 +1,11 @@
 import { Component } from '@angular/core';
+import { SidebarViews } from '../constants';
 
 @Component({
-  selector: 'tgr-home',
+  selector: 'lgd-home',
   template: `
     <div class="theme-base-0d">
-      <div class="sidebar">
-        <div class="sidebar-sticky">
-          <div class="sidebar-about">
-            <h1>Théo Gauthier</h1>
-            <p class="lead">
-              {{ 'home.navbar.description' | translate }}
-            </p>
-          </div>
-
-          <nav class="sidebar-nav">
-            <a class="sidebar-nav-item" routerLink="/">{{
-              'home.navbar.home-link' | translate
-            }}</a>
-            <a class="sidebar-nav-item" routerLink="/resume">{{
-              'home.navbar.resume-link' | translate
-            }}</a>
-            <nav-lang></nav-lang>
-          </nav>
-          <p>
-            <small>{{ 'home.navbar.legal' | translate }}</small>
-          </p>
-        </div>
-      </div>
+      <lgd-sidebar [sidebarView]="SidebarViews.default"></lgd-sidebar>
       <div class="content container">
         <mat-card>
           <mat-card-header>
@@ -48,6 +27,7 @@ import { Component } from '@angular/core';
       </div>
     </div>
   `,
-  styleUrls: ['home.component.scss'],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  public SidebarViews = SidebarViews;
+}

@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'tgr-home',
+  selector: 'lgd-home',
   template: `
     <div class="not-found">
       <mat-card>
@@ -11,9 +11,7 @@ import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
           <mat-card-title>404 Not found</mat-card-title>
         </mat-card-header>
         <mat-card-content>
-          <p>
-            The page you requested does not exist.
-          </p>
+          <p>The page you requested does not exist.</p>
         </mat-card-content>
         <button mat-raised-button routerLink="/" color="primary">
           Return to home

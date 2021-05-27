@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { SidebarViews } from '../constants';
 
 @Component({
   selector: 'resume',
   template: `
     <div class="theme-base-09">
-      <tgr-sidebar></tgr-sidebar>
+      <lgd-sidebar [sidebarView]="SidebarViews.resume"></lgd-sidebar>
       <div class="content container">
         <resume-experiences
           class="resume-card resume-left"
@@ -21,6 +22,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class ResumeComponent {
   public articles: any;
+  public SidebarViews = SidebarViews;
 
   constructor(private translateService: TranslateService) {}
 
