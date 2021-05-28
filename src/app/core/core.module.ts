@@ -27,7 +27,14 @@ const routes: Routes = [];
   providers: [],
   imports: [
     CommonModule,
-    TranslateModule,
+    TranslateModule.forChild({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      isolate: false,
+    }),
     MaterialModule,
     MarkdownModule.forRoot(),
     FontAwesomeModule,
