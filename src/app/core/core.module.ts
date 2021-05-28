@@ -1,6 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, ModuleWithProviders } from '@angular/core';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { NgModule } from '@angular/core';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 import { HttpClient } from '@angular/common/http';
@@ -21,6 +24,7 @@ const routes: Routes = [];
 
 @NgModule({
   declarations: [NotFoundComponent, NavLangComponent, SidebarComponent],
+  providers: [],
   imports: [
     CommonModule,
     TranslateModule,
