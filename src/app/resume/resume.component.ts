@@ -21,7 +21,6 @@ import { SidebarViews } from '../constants';
   styleUrls: ['resume.component.scss'],
 })
 export class ResumeComponent {
-  public articles: any;
   public SidebarViews = SidebarViews;
 
   constructor(private translateService: TranslateService) {}

@@ -7,14 +7,11 @@ const routes: Routes = [
     path: '',
     component: ResumeComponent,
   },
-  {
-    path: '**',
-    component: ResumeComponent,
-  },
+  { path: '**', redirectTo: '', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
+  exports: [],
 })
 export class ResumeRoutingModule {}

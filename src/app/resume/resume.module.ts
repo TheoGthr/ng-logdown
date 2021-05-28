@@ -15,6 +15,6 @@ import { CoreModule } from '../core/core.module';
     ResumeInterestsComponent,
   ],
   imports: [CommonModule, ResumeRoutingModule, CoreModule],
-  exports: [ResumeComponent],
+  exports: [],
 })
 export class ResumeModule {}
