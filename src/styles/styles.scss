@@ -3,6 +3,7 @@
 @import "hyde";
 @import "variables";
 
+/*** CORE ***/
 html,
 body {
   height: 100%;
@@ -26,6 +27,7 @@ body {
   }
 }
 
+/*** RESUME ***/
 .job-header {
   font-weight: 500;
   font-size: 17px;
