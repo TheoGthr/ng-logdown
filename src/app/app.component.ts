@@ -6,8 +6,6 @@ import { TranslateService } from '@ngx-translate/core';
   template: ` <router-outlet></router-outlet>`,
 })
 export class AppComponent {
-  public title = 'logdown';
-
   constructor(private translateService: TranslateService) {
     const browserLang = this.translateService.getBrowserLang();
     let usedLang =
