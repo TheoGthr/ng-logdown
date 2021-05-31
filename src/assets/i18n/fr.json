@@ -30,12 +30,12 @@
       },
       "exyzt": {
         "title": "EXYZT, Castres",
-        "duration": "07/2018 - 08/2018",
+        "duration": "07 - 08/2018",
         "job": "<div class='job-header'>Développeur Back-End - stage</div>Développement d'un serveur NodeJS permettant de formatter et envoyer des données sur une instance CouchDB. Développement d'une fonctionnalité sur un dispatcher de données existant permettant d'envoyer des photos d'un PDA vers un serveur distant. <i>Contexte : NodeJS, CouchDB, PHP</i>"
       },
       "prefecture": {
         "title": "Préfecture du Gard, Nîmes",
-        "duration": "01/2017 - 03/2017",
+        "duration": "01 - 03/2017",
         "job": "<div class='job-header'>Développeur Front-End - stage</div>Développement de nouveaux sites intranets 'from scratch' et mise à jour d'existant. <i>Contexte : HTML5, CSS3, Bootstrap, PHP, Ubuntu Server</i>"
       }
     },

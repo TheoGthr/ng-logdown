@@ -30,12 +30,12 @@
       },
       "exyzt": {
         "title": "EXYZT, Castres",
-        "duration": "07/2018 - 08/2018",
+        "duration": "07 - 08/2018",
         "job": "<div class='job-header'>Back-End developer intern</div>Development of a NodeJS server longpolling a CouchDB instance, formatting and sending the data to adistant server. Development of a functionality to an existing data dispatcher to send pictures from a PDA to a distant server. <i>Context: NodeJS, CouchDB, PHP</i>"
       },
       "prefecture": {
         "title": "Prefecture of Gard, Nîmes",
-        "duration": "01/2017 - 03/2017",
+        "duration": "01 - 03/2017",
         "job": "<div class='job-header'>Front-End developer intern</div>Development of new intranet websites from scratch and update of existing ones. <i>Context: HTML5, CSS3, Bootstrap, PHP, Ubuntu Server</i>"
       }
     },
