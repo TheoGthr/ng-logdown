@@ -16,9 +16,8 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule, Routes } from '@angular/router';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
-}
+export const httpLoaderFactory = (http: HttpClient) =>
+  new TranslateHttpLoader(http);
 
 const routes: Routes = [];
 
@@ -30,7 +29,7 @@ const routes: Routes = [];
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
       isolate: false,

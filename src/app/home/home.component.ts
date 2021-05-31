@@ -5,7 +5,7 @@ import { SidebarViews } from '../constants';
   selector: 'lgd-home',
   template: `
     <div class="theme-base-0d">
-      <lgd-sidebar [sidebarView]="SidebarViews.default"></lgd-sidebar>
+      <lgd-sidebar [sidebarView]="sidebarViews.default"></lgd-sidebar>
       <div class="content container">
         <mat-card>
           <mat-card-header>
@@ -29,5 +29,5 @@ import { SidebarViews } from '../constants';
   `,
 })
 export class HomeComponent {
-  public SidebarViews = SidebarViews;
+  public sidebarViews = SidebarViews;
 }

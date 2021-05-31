@@ -3,17 +3,17 @@ import { TranslateService } from '@ngx-translate/core';
 import { SidebarViews } from '../constants';
 
 @Component({
-  selector: 'resume',
+  selector: 'lgd-resume',
   template: `
     <div class="theme-base-09">
-      <lgd-sidebar [sidebarView]="SidebarViews.resume"></lgd-sidebar>
+      <lgd-sidebar [sidebarView]="sidebarViews.resume"></lgd-sidebar>
       <div class="content container">
-        <resume-experiences
+        <lgd-resume-experiences
           class="resume-card resume-left"
-        ></resume-experiences>
+        ></lgd-resume-experiences>
         <div class="resume-right">
-          <resume-education class="resume-card"></resume-education>
-          <resume-interests></resume-interests>
+          <lgd-resume-education class="resume-card"></lgd-resume-education>
+          <lgd-resume-interests></lgd-resume-interests>
         </div>
       </div>
     </div>
@@ -21,7 +21,7 @@ import { SidebarViews } from '../constants';
   styleUrls: ['resume.component.scss'],
 })
 export class ResumeComponent {
-  public SidebarViews = SidebarViews;
+  public sidebarViews = SidebarViews;
 
   constructor(private translateService: TranslateService) {}
 

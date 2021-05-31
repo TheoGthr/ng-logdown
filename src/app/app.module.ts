@@ -12,9 +12,8 @@ import { CoreModule } from './core/core.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'assets/i18n/');
-}
+export const httpLoaderFactory = (http: HttpClient) =>
+  new TranslateHttpLoader(http, 'assets/i18n/');
 
 @NgModule({
   declarations: [AppComponent],
@@ -25,7 +24,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: httpLoaderFactory,
         deps: [HttpClient],
       },
       isolate: false,

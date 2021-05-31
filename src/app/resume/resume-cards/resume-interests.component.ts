@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'resume-interests',
+  selector: 'lgd-resume-interests',
   styleUrls: ['resume-cards.component.scss'],
   template: `
     <mat-card>

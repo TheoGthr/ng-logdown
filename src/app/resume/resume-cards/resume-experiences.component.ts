@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { faBriefcase } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'resume-experiences',
+  selector: 'lgd-resume-experiences',
   styleUrls: ['resume-cards.component.scss'],
   template: `
     <mat-card class>

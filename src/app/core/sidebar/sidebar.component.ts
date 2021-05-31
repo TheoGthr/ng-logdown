@@ -6,7 +6,7 @@ import { SidebarViews } from 'src/app/constants';
   styleUrls: ['sidebar.component.scss'],
   template: `
     <div class="sidebar">
-      <div *ngIf="sidebarView === SidebarViews.resume" id="resume-info">
+      <div *ngIf="sidebarView === sidebarViews.resume" id="resume-info">
         <img
           mat-card-avatar
           src="/assets/img/resume/profile.jpg"
@@ -17,9 +17,9 @@ import { SidebarViews } from 'src/app/constants';
       </div>
       <div class="sidebar-sticky">
         <div class="sidebar-about">
-          <h1 *ngIf="sidebarView === SidebarViews.default">Logdown</h1>
-          <h1 *ngIf="sidebarView === SidebarViews.resume">Théo Gauthier</h1>
-          <p *ngIf="sidebarView === SidebarViews.default" class="lead">
+          <h1 *ngIf="sidebarView === sidebarViews.default">Logdown</h1>
+          <h1 *ngIf="sidebarView === sidebarViews.resume">Théo Gauthier</h1>
+          <p *ngIf="sidebarView === sidebarViews.default" class="lead">
             {{ 'home.navbar.description' | translate }}
           </p>
         </div>
@@ -31,7 +31,7 @@ import { SidebarViews } from 'src/app/constants';
           <a class="sidebar-nav-item" routerLink="/resume">{{
             'home.navbar.resume-link' | translate
           }}</a>
-          <nav-lang></nav-lang>
+          <lgd-nav-lang></lgd-nav-lang>
         </nav>
         <p>
           <small>{{ 'home.navbar.legal' | translate }}</small>
@@ -41,8 +41,8 @@ import { SidebarViews } from 'src/app/constants';
   `,
 })
 export class SidebarComponent {
-  public SidebarViews = SidebarViews;
-
   @Input()
   public sidebarView: SidebarViews = SidebarViews.default;
+
+  public sidebarViews = SidebarViews;
 }

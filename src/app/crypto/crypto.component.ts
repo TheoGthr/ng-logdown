@@ -4,7 +4,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { articlesEn, articlesFr } from '../../assets/articles/crypto/crypto.js';
 
 @Component({
-  selector: 'crypto',
+  selector: 'lgd-crypto',
   template: `
     <div class="theme-base-0f">
       <div class="sidebar">
@@ -25,7 +25,7 @@ import { articlesEn, articlesFr } from '../../assets/articles/crypto/crypto.js';
             <a routerLink="/" class="sidebar-nav-item">{{
               'home.navbar.home-link' | translate
             }}</a>
-            <nav-lang></nav-lang>
+            <lgd-nav-lang></lgd-nav-lang>
           </nav>
           <p>
             <small>{{ 'home.navbar.legal' | translate }}</small>

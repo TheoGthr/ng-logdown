@@ -3,7 +3,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
 
 @Component({
-  selector: 'nav-lang',
+  selector: 'lgd-nav-lang',
   template: `
     <div id="sub-menu-icons">
       <div id="external-links">

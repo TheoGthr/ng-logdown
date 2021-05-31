@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
-  selector: 'resume-education',
+  selector: 'lgd-resume-education',
   styleUrls: ['resume-cards.component.scss'],
   template: `
     <mat-card>
