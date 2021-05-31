@@ -11,6 +11,8 @@ import { MaterialModule } from './core/material.module';
 import { CoreModule } from './core/core.module';
 import { MarkdownModule } from 'ngx-markdown';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireModule } from '@angular/fire';
+import { environment } from 'src/environments/environment';
 
 export const httpLoaderFactory = (http: HttpClient) =>
   new TranslateHttpLoader(http, 'assets/i18n/');
@@ -32,6 +34,7 @@ export const httpLoaderFactory = (http: HttpClient) =>
     MarkdownModule.forRoot({ loader: HttpClient }),
     CoreModule,
     BrowserAnimationsModule,
+    AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
   ],
   providers: [],

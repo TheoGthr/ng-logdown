@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 import { articlesEn, articlesFr } from '../../assets/articles/crypto/crypto.js';
+import { CoreFirestoreService } from '../core/core-firestore.service';
+import { FireMarkdown } from '../types.js';
 
 @Component({
   selector: 'lgd-crypto',
@@ -33,22 +35,27 @@ import { articlesEn, articlesFr } from '../../assets/articles/crypto/crypto.js';
         </div>
       </div>
       <div class="content container">
-        <markdown [src]="markdown" emoji katex></markdown>
+        <markdown [data]="lklk" emoji katex></markdown>
       </div>
     </div>
   `,
   styleUrls: ['./crypto.component.scss'],
 })
-export class CryptoComponent implements OnInit {
+export class CryptoComponent {
   public articles: any;
   public markdown;
+  public lklk = '';
 
-  constructor(private translateService: TranslateService) {
+  constructor(
+    private translateService: TranslateService,
+    private fsService: CoreFirestoreService
+  ) {
     this.changeArticlesLang();
-  }
-
-  ngOnInit(): void {
-    console.log(this.translateService.currentLang);
+    this.fsService
+      .getDocuments('crypto-articles')
+      .subscribe((data: FireMarkdown[]) => {
+        this.lklk = data[0].docBody.replace('\\n', '\n');
+      });
   }
 
   public changeArticlesLang() {

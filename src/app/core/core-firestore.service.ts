@@ -1,22 +1,37 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
+import { FireDocument } from '../types';
 
-@Injectable({ providedIn: 'root' })
+@Injectable()
 export class CoreFirestoreService {
   constructor(private firestore: AngularFirestore) {}
 
-  public addDocument(document: any): Observable<DocumentReference> {
-    const documentsCollection = this.firestore.collection<any>('user-posts');
+  public getDocuments(collectionName: string): Observable<FireDocument[]> {
+    return this.firestore
+      .collection<FireDocument>(collectionName)
+      .valueChanges({ idField: 'id' });
+  }
+
+  public addDocument(
+    collectionName: string,
+    document: FireDocument
+  ): Observable<DocumentReference> {
+    const documentsCollection =
+      this.firestore.collection<FireDocument>(collectionName);
     return from(documentsCollection.add(document));
   }
 
-  public updateDocument(id: string, document: any): Observable<void> {
+  public updateDocument(
+    collectionName: string,
+    id: string,
+    document: FireDocument
+  ): Observable<void> {
     const docNoId = { ...document };
     delete docNoId?.id;
 
     return from(
-      this.firestore.doc<any>(`user-posts/${id}`).update({
+      this.firestore.doc<FireDocument>(`${collectionName}/${id}`).update({
         ...docNoId,
       })
     );

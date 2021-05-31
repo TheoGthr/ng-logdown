@@ -1,7 +1,8 @@
 export interface FireDocument {
   id?: string;
+  docBody: string;
 }
 
 export interface FireMarkdown extends FireDocument {
-  body: string;
+  title: string;
 }
