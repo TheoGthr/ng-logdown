@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
+import {
+  AngularFirestore,
+  AngularFirestoreCollection,
+  DocumentReference,
+} from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
-import { FireDocument } from '../types';
+import { FireDocument, WhereFilterOp } from '../types';
 
 @Injectable()
 export class CoreFirestoreService {
@@ -10,6 +14,19 @@ export class CoreFirestoreService {
   public getDocuments(collectionName: string): Observable<FireDocument[]> {
     return this.firestore
       .collection<FireDocument>(collectionName)
+      .valueChanges({ idField: 'id' });
+  }
+
+  public getDocumentsWhere(
+    collectionName: string,
+    condField: string,
+    condOp: WhereFilterOp,
+    condVal: string | number
+  ): Observable<FireDocument[]> {
+    return this.firestore
+      .collection<FireDocument>(collectionName, (ref) =>
+        ref.where(condField, condOp, condVal)
+      )
       .valueChanges({ idField: 'id' });
   }
 

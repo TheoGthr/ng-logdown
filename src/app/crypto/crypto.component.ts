@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { TranslateService } from '@ngx-translate/core';
-
-import { articlesEn, articlesFr } from '../../assets/articles/crypto/crypto.js';
 import { CoreFirestoreService } from '../core/core-firestore.service';
-import { FireMarkdown } from '../types.js';
+import { FireCrypto, FireMarkdown } from '../types.js';
 
 @Component({
   selector: 'lgd-crypto',
@@ -17,8 +14,8 @@ import { FireMarkdown } from '../types.js';
           <mat-selection-list #article [multiple]="false">
             <mat-list-option
               *ngFor="let article of articles"
-              [value]="article.file"
-              (click)="loadMd(article.file)"
+              [value]="article.id"
+              (click)="loadMd(article.id)"
             >
               {{ article.title }}
             </mat-list-option>
@@ -35,42 +32,30 @@ import { FireMarkdown } from '../types.js';
         </div>
       </div>
       <div class="content container">
-        <markdown [data]="testArticle" emoji katex></markdown>
+        <markdown [data]="markdown" emoji katex></markdown>
       </div>
     </div>
   `,
   styleUrls: ['./crypto.component.scss'],
 })
-export class CryptoComponent {
-  public articles: any;
+export class CryptoComponent implements OnInit {
+  public articles: FireCrypto[];
   public markdown;
-  public testArticle = '';
 
-  constructor(
-    private translateService: TranslateService,
-    private fsService: CoreFirestoreService
-  ) {
-    this.changeArticlesLang();
+  constructor(private fsService: CoreFirestoreService) {}
+
+  public ngOnInit() {
     this.fsService
       .getDocuments('crypto-articles')
-      .subscribe((data: FireMarkdown[]) => {
-        this.testArticle = data[0].docBody.replace(/\\n/g, '\n');
+      .subscribe((data: FireCrypto[]) => {
+        this.articles = data.sort((a, b) => a.order - b.order);
+        console.log(this.articles);
       });
   }
 
-  public changeArticlesLang() {
-    this.articles =
-      this.translateService.currentLang === 'fr' ? articlesFr : articlesEn;
-  }
-
-  public setLang(lang: string) {
-    this.translateService.use(lang);
-    this.changeArticlesLang();
-  }
-
-  public loadMd(filename: string) {
-    console.log(this.translateService.currentLang);
-    const pathToFile = `assets/articles/crypto/${this.translateService.currentLang}/${filename}.md`;
-    this.markdown = pathToFile;
+  public loadMd(id: string) {
+    this.markdown = this.articles
+      .find((e) => e.id === id)
+      .docBody.replace(/\\n/g, '\n');
   }
 }
