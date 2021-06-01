@@ -11,7 +11,7 @@ import { FireCrypto, FireMarkdown } from '../types.js';
           <div class="sidebar-about">
             <h1>Crypto</h1>
           </div>
-          <mat-selection-list #article [multiple]="false">
+          <mat-selection-list #articlesLinks [multiple]="false">
             <mat-list-option
               *ngFor="let article of articles"
               [value]="article.id"
@@ -32,15 +32,17 @@ import { FireCrypto, FireMarkdown } from '../types.js';
         </div>
       </div>
       <div class="content container">
-        <markdown [data]="markdown" emoji katex></markdown>
+        <div>
+          <!-- TODO: put smth at first launch -->
+        </div>
+        <markdown [data]="selectedArticleBody" emoji katex></markdown>
       </div>
     </div>
   `,
-  styleUrls: ['./crypto.component.scss'],
 })
 export class CryptoComponent implements OnInit {
   public articles: FireCrypto[];
-  public markdown;
+  public selectedArticleBody: string;
 
   constructor(private fsService: CoreFirestoreService) {}
 
@@ -48,13 +50,13 @@ export class CryptoComponent implements OnInit {
     this.fsService
       .getDocuments('crypto-articles')
       .subscribe((data: FireCrypto[]) => {
-        this.articles = data.sort((a, b) => a.order - b.order);
-        console.log(this.articles);
+        this.articles = data?.sort((a, b) => a.order - b.order);
+        this.loadMd(this.articles?.find((e) => e.order === 0)?.id);
       });
   }
 
   public loadMd(id: string) {
-    this.markdown = this.articles
+    this.selectedArticleBody = this.articles
       .find((e) => e.id === id)
       .docBody.replace(/\\n/g, '\n');
   }
