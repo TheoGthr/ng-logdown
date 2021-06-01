@@ -12,6 +12,14 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: npm ci && npm run set-env:prod && npm run build:prod
+        env:
+          FIREBASE_JSON_APIKEY: "${{ secrets.FIREBASE_JSON_APIKEY }}"
+          FIREBASE_JSON_AUTHDOMAIN: "${{ secrets.FIREBASE_JSON_AUTHDOMAIN }}"
+          FIREBASE_JSON_PROJECTID: "${{ secrets.FIREBASE_JSON_PROJECTID }}"
+          FIREBASE_JSON_BUCKET: "${{ secrets.FIREBASE_JSON_BUCKET }}"
+          FIREBASE_JSON_MSGSENDID: "${{ secrets.FIREBASE_JSON_MSGSENDID }}"
+          FIREBASE_JSON_APPID: "${{ secrets.FIREBASE_JSON_APPID }}"
+          FIREBASE_JSON_MESID: "${{ secrets.FIREBASE_JSON_MESID }}"
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: "${{ secrets.GITHUB_TOKEN }}"
