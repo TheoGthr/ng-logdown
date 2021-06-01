@@ -26,11 +26,13 @@ if (!existsSync(envDirectory)) {
   mkdirSync(envDirectory);
 }
 
-//creates the `environment.prod.ts` and `environment.ts` file if it does not exist
-writeFileUsingFS(`${envDirectory}/environment.prod.ts`, '');
-
 // Checks whether command line argument of `prod` was provided signifying production mode
 const isProduction = environment === 'prod';
+
+//creates the `environment.prod.ts` and `environment.ts` file if it does not exist
+if (isProduction) {
+  writeFileUsingFS(`${envDirectory}/environment.prod.ts`, '');
+}
 
 // choose the correct targetPath based on the environment chosen
 const targetPath = `${envDirectory}/environment.prod.ts`;
