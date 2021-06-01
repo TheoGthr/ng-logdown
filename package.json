@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "set-env": "ts-node ./src/environments/setEnv.ts",
-    "set-env:prod": "ts-node ./src/environments/setEnv.ts --configuration production",
+    "set-env:prod": "ts-node ./src/environments/setEnv.ts --environment prod",
     "start": "ng serve",
     "build": "ng build",
     "build:prod": "ng build --configuration production --aot",
