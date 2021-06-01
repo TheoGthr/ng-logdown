@@ -5,4 +5,7 @@ export interface FireDocument {
 
 export interface FireMarkdown extends FireDocument {
   title: string;
+  lang: Lang;
 }
+
+export type Lang = 'en' | 'fr';

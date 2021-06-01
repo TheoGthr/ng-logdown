@@ -35,7 +35,7 @@ import { FireMarkdown } from '../types.js';
         </div>
       </div>
       <div class="content container">
-        <markdown [data]="lklk" emoji katex></markdown>
+        <markdown [data]="testArticle" emoji katex></markdown>
       </div>
     </div>
   `,
@@ -44,7 +44,7 @@ import { FireMarkdown } from '../types.js';
 export class CryptoComponent {
   public articles: any;
   public markdown;
-  public lklk = '';
+  public testArticle = '';
 
   constructor(
     private translateService: TranslateService,
@@ -54,7 +54,7 @@ export class CryptoComponent {
     this.fsService
       .getDocuments('crypto-articles')
       .subscribe((data: FireMarkdown[]) => {
-        this.lklk = data[0].docBody.replace('\\n', '\n');
+        this.testArticle = data[0].docBody.replace(/\\n/g, '\n');
       });
   }
 
