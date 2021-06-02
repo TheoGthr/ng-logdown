@@ -12,6 +12,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule, Routes } from '@angular/router';
 import { CoreFirestoreService } from './core-firestore.service';
+import { LoginComponent } from './login/login.component';
 
 export const httpLoaderFactory = (http: HttpClient) =>
   new TranslateHttpLoader(http);
@@ -19,7 +20,12 @@ export const httpLoaderFactory = (http: HttpClient) =>
 const routes: Routes = [];
 
 @NgModule({
-  declarations: [NotFoundComponent, NavLangComponent, SidebarComponent],
+  declarations: [
+    NotFoundComponent,
+    NavLangComponent,
+    SidebarComponent,
+    LoginComponent,
+  ],
   providers: [CoreFirestoreService],
   imports: [
     CommonModule,

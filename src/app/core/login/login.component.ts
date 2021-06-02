@@ -3,7 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import firebase from 'firebase/app';
 
 @Component({
-  selector: 'lgd-crypto-admin',
+  selector: 'lgd-login',
   template: `
     <div class="login-card">
       <mat-card *ngIf="auth.user | async as user; else showLogin">
@@ -44,7 +44,7 @@ import firebase from 'firebase/app';
     `,
   ],
 })
-export class CryptoAdminComponent implements OnInit {
+export class LoginComponent implements OnInit {
   constructor(public auth: AngularFireAuth) {}
 
   ngOnInit(): void {}

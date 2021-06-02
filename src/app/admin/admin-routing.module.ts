@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { CryptoComponent } from './crypto.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: CryptoComponent,
+    component: AdminComponent,
   },
 ];
 
@@ -13,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CryptoRoutingModule {}
+export class AdminRoutingModule {}
