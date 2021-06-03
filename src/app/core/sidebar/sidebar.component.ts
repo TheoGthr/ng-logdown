@@ -19,12 +19,13 @@ import { SidebarViews } from 'src/app/constants';
         <div class="sidebar-about">
           <h1 *ngIf="sidebarView === sidebarViews.default">Logdown</h1>
           <h1 *ngIf="sidebarView === sidebarViews.resume">Théo Gauthier</h1>
+          <h1 *ngIf="sidebarView === sidebarViews.admin">Admin</h1>
           <p *ngIf="sidebarView === sidebarViews.default" class="lead">
             {{ 'home.navbar.description' | translate }}
           </p>
         </div>
 
-        <nav class="sidebar-nav">
+        <nav *ngIf="sidebarView !== sidebarViews.admin" class="sidebar-nav">
           <a class="sidebar-nav-item" routerLink="/">{{
             'home.navbar.home-link' | translate
           }}</a>
@@ -33,6 +34,16 @@ import { SidebarViews } from 'src/app/constants';
           }}</a>
           <lgd-nav-lang></lgd-nav-lang>
         </nav>
+        <nav *ngIf="sidebarView === sidebarViews.admin">
+          <a class="sidebar-nav-item" routerLink="crypto">Crypto</a>
+        </nav>
+        <button
+          *ngIf="sidebarView === sidebarViews.admin"
+          mat-raised-button
+          (click)="logoutFct()"
+        >
+          Logout
+        </button>
         <p>
           <small>{{ 'home.navbar.legal' | translate }}</small>
         </p>
@@ -43,6 +54,9 @@ import { SidebarViews } from 'src/app/constants';
 export class SidebarComponent {
   @Input()
   public sidebarView: SidebarViews = SidebarViews.default;
+
+  @Input()
+  public logoutFct: any;
 
   public sidebarViews = SidebarViews;
 }
