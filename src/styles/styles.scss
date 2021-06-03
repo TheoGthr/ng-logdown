@@ -2,6 +2,7 @@
 @import "poole";
 @import "hyde";
 @import "variables";
+@import "../../node_modules/simplemde/dist/simplemde.min.css";
 
 /*** CORE ***/
 html,
@@ -41,4 +42,9 @@ body {
 .resume-card b {
   font-weight: 450;
   font-style: italic;
+}
+
+/*** MD EDITOR ***/
+.editor-toolbar {
+  background-color: white;
 }

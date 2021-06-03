@@ -38,6 +38,7 @@
     "firebase": "^8.6.3",
     "ngx-markdown": "^12.0.1",
     "rxjs": "~6.5.5",
+    "simplemde": "^1.11.2",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"
   },
