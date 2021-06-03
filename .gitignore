@@ -50,5 +50,4 @@ Thumbs.db
 .firebaserc
 *.log
 
-src/environments/environment.ts
-src/environments/environment.ts
+src/environments/environment.dev.ts
