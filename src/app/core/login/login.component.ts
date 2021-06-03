@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 import firebase from 'firebase/app';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'lgd-login',
@@ -8,9 +10,12 @@ import firebase from 'firebase/app';
     <div class="login-card">
       <mat-card *ngIf="auth.user | async as user; else showLogin">
         <mat-card-header>
-          <mat-card-title>Hello {{ user.displayName }}!</mat-card-title>
+          <mat-card-title>Not authorized</mat-card-title>
         </mat-card-header>
-        <mat-card-content>How are you?</mat-card-content>
+        <mat-card-content
+          >Sorry, you are not allowed to go to the admin section. This incident
+          will be reported.</mat-card-content
+        >
         <button mat-raised-button color="primary" (click)="logout()">
           Logout
         </button>
@@ -45,9 +50,19 @@ import firebase from 'firebase/app';
   ],
 })
 export class LoginComponent implements OnInit {
-  constructor(public auth: AngularFireAuth) {}
+  constructor(public auth: AngularFireAuth, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.auth.authState.subscribe((state) => {
+      if (!!state) {
+        from(state.getIdTokenResult()).subscribe((token) => {
+          if (!!token && token.claims.admin === true) {
+            this.router.navigate(['admin']);
+          }
+        });
+      }
+    });
+  }
 
   login() {
     this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
@@ -55,5 +70,6 @@ export class LoginComponent implements OnInit {
 
   logout() {
     this.auth.signOut();
+    this.router.navigate(['home']);
   }
 }
