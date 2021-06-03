@@ -11,7 +11,9 @@ import { SidebarViews } from '../constants';
         [sidebarView]="sidebarViews.admin"
         [logoutFct]="logout.bind(this)"
       ></lgd-sidebar>
-      <div class="content container"></div>
+      <div class="content container">
+        <router-outlet></router-outlet>
+      </div>
     </div>
   `,
 })
