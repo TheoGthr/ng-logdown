@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CoreFirestoreService } from '../../core/core-firestore.service';
-import { FireCrypto } from '../../types';
+import { FirePages } from '../../types';
 
 @Component({
-  selector: 'lgd-admin-crypto',
-  styleUrls: ['admin-crypto.component.scss'],
+  selector: 'lgd-admin-pages',
+  styleUrls: ['admin-pages.component.scss'],
   template: `
     <div class="articles-title">
       <h1>Articles</h1>
@@ -19,15 +19,15 @@ import { FireCrypto } from '../../types';
     </mat-selection-list>
   `,
 })
-export class AdminCryptoComponent implements OnInit {
-  public articles: FireCrypto[];
+export class AdminPagesComponent implements OnInit {
+  public articles: FirePages[];
 
   constructor(private coreFs: CoreFirestoreService) {}
 
   ngOnInit(): void {
     this.coreFs
-      .getDocuments('crypto-articles')
-      .subscribe((data: FireCrypto[]) => {
+      .getDocuments('pages-articles')
+      .subscribe((data: FirePages[]) => {
         this.articles = data;
       });
   }

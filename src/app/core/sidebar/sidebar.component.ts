@@ -35,7 +35,7 @@ import { SidebarViews } from 'src/app/constants';
           <lgd-nav-lang></lgd-nav-lang>
         </nav>
         <nav *ngIf="sidebarView === sidebarViews.admin">
-          <a class="sidebar-nav-item" routerLink="crypto">Crypto</a>
+          <a class="sidebar-nav-item" routerLink="crypto">Pages</a>
         </nav>
         <button
           *ngIf="sidebarView === sidebarViews.admin"

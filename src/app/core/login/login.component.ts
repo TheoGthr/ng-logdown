@@ -24,7 +24,7 @@ import { from } from 'rxjs';
     <ng-template #showLogin>
       <mat-card>
         <mat-card-header>
-          <mat-card-title>Admin Crypto</mat-card-title>
+          <mat-card-title>Admin Pages</mat-card-title>
         </mat-card-header>
         <mat-card-content>Please login.</mat-card-content>
         <button mat-raised-button color="primary" (click)="login()">

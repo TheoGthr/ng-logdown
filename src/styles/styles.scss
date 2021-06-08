@@ -13,24 +13,8 @@ body {
   margin: 0;
 }
 
-.content,
-.container {
+.content.container {
   max-width: 100%;
-  display: flex;
-
-  @media screen and (max-width: 1092px) and (min-width: 750px) {
-    margin-left: 40vw;
-    margin-right: 2%;
-  }
-
-  @media screen and (max-width: 1650px) and (min-width: 1100px) {
-    margin-left: 30%;
-    margin-right: 2%;
-  }
-
-  @media screen and (max-width: 1650px) {
-    flex-direction: column;
-  }
 }
 
 /*** RESUME ***/

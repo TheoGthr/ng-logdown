@@ -1,16 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { CryptoComponent } from './crypto.component';
+import { PagesComponent } from './pages.component';
 
 const routes: Routes = [
   {
-    path: '',
-    component: CryptoComponent,
+    path: ':page',
+    component: PagesComponent,
   },
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class CryptoRoutingModule {}
+export class PagesRoutingModule {}

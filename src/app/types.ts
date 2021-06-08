@@ -8,7 +8,7 @@ export interface FireMarkdown extends FireDocument {
   lang: Lang;
 }
 
-export interface FireCrypto extends FireMarkdown {
+export interface FirePages extends FireMarkdown {
   order: number;
 }
 

@@ -1,18 +1,18 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CryptoComponent } from './crypto.component';
-import { CryptoRoutingModule } from './crypto-routing.module';
+import { PagesComponent } from './pages.component';
+import { PagesRoutingModule } from './pages-routing.module';
 import { CoreModule } from '../core/core.module';
 import { MarkdownModule } from 'ngx-markdown';
 
 @NgModule({
-  declarations: [CryptoComponent],
+  declarations: [PagesComponent],
   imports: [
     CommonModule,
-    CryptoRoutingModule,
+    PagesRoutingModule,
     CoreModule,
     MarkdownModule.forChild(),
   ],
-  exports: [CryptoComponent],
+  exports: [PagesComponent],
 })
-export class CryptoModule {}
+export class PagesModule {}

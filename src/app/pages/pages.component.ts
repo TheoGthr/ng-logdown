@@ -1,15 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CoreFirestoreService } from '../core/core-firestore.service';
-import { FireCrypto, FireMarkdown } from '../types.js';
+import { FirePages } from '../types.js';
 
 @Component({
-  selector: 'lgd-crypto',
+  selector: 'lgd-pages',
   template: `
     <div class="theme-base-0f">
       <div class="sidebar">
         <div class="sidebar-sticky">
           <div class="sidebar-about">
-            <h1>Crypto</h1>
+            <h1>Pages</h1>
           </div>
           <mat-selection-list #articlesLinks [multiple]="false">
             <mat-list-option
@@ -40,24 +41,34 @@ import { FireCrypto, FireMarkdown } from '../types.js';
     </div>
   `,
 })
-export class CryptoComponent implements OnInit {
-  public articles: FireCrypto[];
+export class PagesComponent implements OnInit {
+  public articles: FirePages[];
   public selectedArticleBody: string;
 
-  constructor(private fsService: CoreFirestoreService) {}
+  constructor(
+    private fsService: CoreFirestoreService,
+    private router: ActivatedRoute
+  ) {}
 
   public ngOnInit() {
-    this.fsService
-      .getDocuments('crypto-articles')
-      .subscribe((data: FireCrypto[]) => {
-        this.articles = data?.sort((a, b) => a.order - b.order);
-        this.loadMd(this.articles?.find((e) => e.order === 0)?.id);
-      });
+    this.router.params.subscribe((params) => {
+      if (params?.page !== undefined) {
+        this.fsService
+          .getDocuments('crypto-articles')
+          .subscribe((data: FirePages[]) => {
+            this.articles = data?.sort((a, b) => a.order - b.order);
+            this.loadMd(
+              this.articles?.find((e) => e.order === 0)?.id ||
+                this.articles[0]?.id
+            );
+          });
+      }
+    });
   }
 
   public loadMd(id: string) {
     this.selectedArticleBody = this.articles
       .find((e) => e.id === id)
-      .docBody.replace(/\\n/g, '\n');
+      ?.docBody.replace(/\\n/g, '\n');
   }
 }

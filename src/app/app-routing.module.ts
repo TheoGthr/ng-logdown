@@ -5,9 +5,9 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {
-    path: 'crypto',
+    path: 'pages',
     loadChildren: () =>
-      import('./crypto/crypto.module').then((m) => m.CryptoModule),
+      import('./pages/pages.module').then((m) => m.PagesModule),
   },
   {
     path: 'resume',

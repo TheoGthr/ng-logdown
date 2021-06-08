@@ -1,6 +1,6 @@
 import { AdminEditorComponent } from './admin-editor/admin-editor.component';
 import { AdminHomeComponent } from './admin-home.component';
-import { AdminCryptoComponent } from './admin-crypto/admin-crypto.component';
+import { AdminPagesComponent } from './admin-pages/admin-pages.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin.component';
@@ -28,8 +28,8 @@ const routes: Routes = [
         component: AdminHomeComponent,
       },
       {
-        path: 'crypto',
-        component: AdminCryptoComponent,
+        path: 'pages',
+        component: AdminPagesComponent,
       },
       {
         path: 'edit',

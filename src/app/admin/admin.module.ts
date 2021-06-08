@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { AdminComponent } from './admin.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { CoreModule } from '../core/core.module';
-import { AdminCryptoComponent } from './admin-crypto/admin-crypto.component';
+import { AdminPagesComponent } from './admin-pages/admin-pages.component';
 import { FormsModule } from '@angular/forms';
 
 @NgModule({
@@ -13,7 +13,7 @@ import { FormsModule } from '@angular/forms';
     AdminComponent,
     AdminHomeComponent,
     AdminEditorComponent,
-    AdminCryptoComponent,
+    AdminPagesComponent,
   ],
   imports: [CommonModule, CoreModule, AdminRoutingModule, FormsModule],
   exports: [],
