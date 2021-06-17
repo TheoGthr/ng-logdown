@@ -1,3 +1,4 @@
+import { DocumentsStoreService } from './../../core/documents.store';
 import { Component, OnInit } from '@angular/core';
 import { CoreFirestoreService } from '../../core/core-firestore.service';
 import { FirePages } from '../../types';
@@ -22,13 +23,17 @@ import { FirePages } from '../../types';
 export class AdminPagesComponent implements OnInit {
   public articles: FirePages[];
 
-  constructor(private coreFs: CoreFirestoreService) {}
+  constructor(
+    private coreFs: CoreFirestoreService,
+    private store: DocumentsStoreService
+  ) {}
 
   ngOnInit(): void {
     this.coreFs
       .getDocuments('pages-articles')
       .subscribe((data: FirePages[]) => {
         this.articles = data;
+        this.store.addDocuments(data);
       });
   }
 }

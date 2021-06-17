@@ -1,3 +1,4 @@
+import { DocumentsStoreService } from './documents.store';
 import { NgModule } from '@angular/core';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -26,7 +27,7 @@ const routes: Routes = [];
     SidebarComponent,
     LoginComponent,
   ],
-  providers: [CoreFirestoreService],
+  providers: [CoreFirestoreService, DocumentsStoreService],
   imports: [
     CommonModule,
     TranslateModule.forChild({

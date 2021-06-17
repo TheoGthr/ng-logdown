@@ -1,9 +1,5 @@
 import { Injectable } from '@angular/core';
-import {
-  AngularFirestore,
-  AngularFirestoreCollection,
-  DocumentReference,
-} from '@angular/fire/firestore';
+import { AngularFirestore, DocumentReference } from '@angular/fire/firestore';
 import { from, Observable } from 'rxjs';
 import { FireDocument, WhereFilterOp } from '../types';
 
