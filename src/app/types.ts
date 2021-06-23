@@ -1,15 +1,18 @@
 export interface FireDocument {
   id?: string;
-  docBody: string;
 }
 
 export interface FireMarkdown extends FireDocument {
+  docBody: string;
   title: string;
   lang: Lang;
+  created: Date;
+  modified: Date | null;
 }
 
 export interface FirePages extends FireMarkdown {
   order: number;
+  route: string;
 }
 
 export type Lang = 'en' | 'fr';

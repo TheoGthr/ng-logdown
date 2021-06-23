@@ -19,7 +19,11 @@ import { SidebarViews } from '../constants';
             </p>
           </mat-card-content>
           <mat-card-actions>
-            <button mat-raised-button routerLink="/crypto" color="primary">
+            <button
+              mat-raised-button
+              routerLink="/pages/crypto"
+              color="primary"
+            >
               Go!
             </button>
           </mat-card-actions>

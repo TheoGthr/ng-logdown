@@ -5,6 +5,7 @@ import { FirePages } from '../types.js';
 
 @Component({
   selector: 'lgd-pages',
+  styleUrls: ['pages.component.scss'],
   template: `
     <div class="theme-base-0f">
       <div class="sidebar">
@@ -32,36 +33,54 @@ import { FirePages } from '../types.js';
           </p>
         </div>
       </div>
-      <div class="content container">
-        <div>
+      <div
+        class="content container"
+        [ngClass]="{ 'page-center': routeState === 'not-found' }"
+      >
+        <div *ngIf="routeState === 'idle'">
           <!-- TODO: put smth at first launch -->
         </div>
-        <markdown [data]="selectedArticleBody" emoji katex></markdown>
+        <markdown
+          *ngIf="routeState === 'loaded'"
+          [data]="selectedArticleBody"
+          emoji
+          katex
+        ></markdown>
+        <lgd-not-found *ngIf="routeState === 'not-found'"></lgd-not-found>
       </div>
     </div>
   `,
 })
 export class PagesComponent implements OnInit {
   public articles: FirePages[];
+  public routeState = 'idle';
   public selectedArticleBody: string;
 
   constructor(
     private fsService: CoreFirestoreService,
-    private router: ActivatedRoute
+    private route: ActivatedRoute
   ) {}
 
   public ngOnInit() {
-    this.router.params.subscribe((params) => {
+    this.route.params.subscribe((params) => {
       if (params?.page !== undefined) {
-        this.fsService
-          .getDocuments('crypto-articles')
-          .subscribe((data: FirePages[]) => {
-            this.articles = data?.sort((a, b) => a.order - b.order);
-            this.loadMd(
-              this.articles?.find((e) => e.order === 0)?.id ||
-                this.articles[0]?.id
-            );
-          });
+        this.fsService.getDocuments('pages').subscribe((pages: FirePages[]) => {
+          const idx = pages?.findIndex((p) => p.route === params.page);
+          if (idx > -1) {
+            this.routeState = 'loaded';
+            this.fsService
+              .getDocuments(`${pages[idx].route}-articles`)
+              .subscribe((data: FirePages[]) => {
+                this.articles = data?.sort((a, b) => a.order - b.order);
+                this.loadMd(
+                  this.articles?.find((e) => e.order === 0)?.id ||
+                    this.articles[0]?.id
+                );
+              });
+          } else {
+            this.routeState = 'not-found';
+          }
+        });
       }
     });
   }

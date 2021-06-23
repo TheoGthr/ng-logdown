@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'lgd-home',
+  selector: 'lgd-not-found',
   template: `
     <div class="not-found">
       <mat-card>
